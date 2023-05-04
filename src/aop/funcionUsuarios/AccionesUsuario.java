@@ -13,7 +13,9 @@ import aop.model.Usuario;
 public class AccionesUsuario {
 
 	public Usuario registroDeUsuarios(Scanner sc) {
-		System.out.println("Ingresando usuario...\n Nombre: ");
+		System.out.println("Ingresando usuario...");
+		System.out.println("Nombre: ");
+		sc.nextLine();
 		String nombre = sc.nextLine();
 		System.out.println("Apellido: ");
 		String apellido = sc.nextLine();

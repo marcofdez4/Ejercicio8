@@ -9,7 +9,7 @@ import aop.aspectos.InformeFuncionAspect;
 
 @Configuration
 @EnableAspectJAutoProxy
-@ComponentScan("funcionUsuarios")
+@ComponentScan("aop.funcionUsuarios")
 public class ConfiguracionUsuarioAspecto {
 
 	@Bean

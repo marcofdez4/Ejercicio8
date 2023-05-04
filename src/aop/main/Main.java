@@ -26,14 +26,15 @@ public class Main {
 		int menu = 99;
 		while(menu!=0) {
 			System.out
-			.println("Ingrese una operacion:\n" + "1. Registrar usuario\n" +"2. Ver lista de usuarios"+ "3. Ver edades de la lista de usuarios\n" + "0. Salir\n");
+			.println("Ingrese una operacion:\n" + "1. Registrar usuario\n" +"2. Ver lista de usuarios\n"+ "3. Ver edades de la lista de usuarios\n" + "0. Salir");
 			
 			menu = sc.nextInt();
 			switch (menu) {
 			case 0:
 				break;
 			case 1:
-				ua.registroDeUsuarios(sc);
+				Usuario user = ua.registroDeUsuarios(sc);
+				users.add(user);
 				break;
 			case 2:
 				if(users.isEmpty()) {
@@ -53,6 +54,7 @@ public class Main {
 				else {
 					System.out.println("La lista de las edades de los usuarios es:");
 					for(Usuario u:users) {
+						
 						System.out.println("El usuario "+u.getUsername()+"tiene "+ua.calculaEdad(u.getFechaNacimiento())+" años");
 					}
 				}
