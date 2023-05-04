@@ -40,12 +40,12 @@ public class AccionesUsuario {
 		System.out.println("email: ");
 		String email = sc.nextLine();
 		
-		Usuario user = new Usuario(nombre, apellido, fecha, username, email);
-		return user;
+		return new Usuario(nombre, apellido, fecha, username, email);
 	}
 	
 	public Integer calculaEdad(LocalDate fecha) {
 		Long edad = ChronoUnit.YEARS.between(fecha, LocalDate.now());
 		return edad.intValue();
 	}
+	
 }

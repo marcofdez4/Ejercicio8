@@ -13,15 +13,15 @@ import aop.model.Usuario;
 public class Main {
 
 	public static void main(String[] args) {
-		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ConfiguracionUsuarioAspecto.class);
-//		context.register(ConfiguracionUsuarioAspecto.class); 
-//		context.scan("funcionUsuarios", "aspectos");  
-//		context.refresh();
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
+		context.register(ConfiguracionUsuarioAspecto.class); 
+		context.scan("aop.funcionUsuarios", "aop.aspectos", "aop.model");  
+		context.refresh();
 		AccionesUsuario ua = context.getBean(AccionesUsuario.class);
 		
 		Scanner sc = new Scanner(System.in);
 
-		List<Usuario> users = new ArrayList<>();
+		List<Usuario> users = new ArrayList<Usuario>();
 		
 		int menu = 99;
 		while(menu!=0) {
@@ -33,8 +33,7 @@ public class Main {
 			case 0:
 				break;
 			case 1:
-				Usuario user = ua.registroDeUsuarios(sc);
-				users.add(user);
+				users.add(ua.registroDeUsuarios(sc)); 
 				break;
 			case 2:
 				if(users.isEmpty()) {
@@ -54,16 +53,20 @@ public class Main {
 				else {
 					System.out.println("La lista de las edades de los usuarios es:");
 					for(Usuario u:users) {
-						
-						System.out.println("El usuario "+u.getUsername()+"tiene "+ua.calculaEdad(u.getFechaNacimiento())+" años");
+						System.out.println("-----------");
+						System.out.println("El usuario "+u.getUsername()+"tiene "+ua.calculaEdad(u.getFechaNacimiento())+" anyos");
 					}
+					
 				}
 				break;
 			default:
-				System.out.println("número erróneo, inserte otro número de la lista");
+				System.out.println("numero erroneo, inserte otro numero de la lista");
 			}	
+			System.out.println("-------------------------------------------------");
 		}
 		
 		sc.close();
+		context.close();
+		System.out.println("Fin del programa, tenga un buen dia!");
 	}
 }

@@ -2,6 +2,7 @@ package aop.model;
 
 import java.time.LocalDate;
 
+
 public class Usuario extends Persona{
 
 	private String username;
@@ -28,6 +29,13 @@ public class Usuario extends Persona{
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	@Override
+	public String toString() {
+		return "Usuario [username=" + username + ", email=" + email + "]";
+	}
+	
+	
 	
 	
 }
