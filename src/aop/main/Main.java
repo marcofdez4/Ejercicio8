@@ -13,10 +13,10 @@ import aop.model.Usuario;
 public class Main {
 
 	public static void main(String[] args) {
-		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
-		context.register(ConfiguracionUsuarioAspecto.class); 
-		context.scan("funcionUsuarios", "aspectos");  
-		context.refresh();
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ConfiguracionUsuarioAspecto.class);
+//		context.register(ConfiguracionUsuarioAspecto.class); 
+//		context.scan("funcionUsuarios", "aspectos");  
+//		context.refresh();
 		AccionesUsuario ua = context.getBean(AccionesUsuario.class);
 		
 		Scanner sc = new Scanner(System.in);

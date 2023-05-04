@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class InformeFuncionAspect {
 
-	@Around("execution (* funcionUsuarios.AccionesUsuario.*(..))")
+	@Around("execution (* registroDeUsuarios(..))")
 	public void informe(ProceedingJoinPoint  joinPoint) throws Throwable
 	{
 		String username = System.getProperty("Usuario.username");
